@@ -1,0 +1,227 @@
+/*-------------------------------------------
+  Helper classes
+-------------------------------------------*/
+// List resets
+%list-reset {
+  list-style: none;
+  margin: 0;
+}
+
+%inline-list {
+  @extend %list-reset;
+
+  > li {
+    display: inline-block;
+  }
+}
+
+// Button resets
+%btn-reset {
+  background: none;
+  border: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+// Centering
+%center-horz {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+%center-vert {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+%center-both {
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+%center-vert-alt {
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    margin-right: -10px;
+    vertical-align: middle;
+    width: 10px;
+  }
+}
+
+// Cover
+%cover {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+// Transitions
+%transition {
+  transition: all .25s ease;
+}
+
+// Meta text
+.meta, %meta {
+	border: 0!important;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px!important;
+	overflow: hidden!important;
+	padding: 0!important;
+	position: absolute!important;
+	width: 1px!important;
+}
+
+%unmeta {
+  clip: auto;
+  height: auto!important;
+  overflow: visible!important;
+  position: static!important;
+  width: auto!important;
+}
+
+// Font smoothing
+%antialias {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+%subpixel {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+}
+
+%auto-antialias {
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+// Dropdown arrow
+%down-arrow {
+  &:after {
+    border: 4px solid $text;
+    border-bottom-width: 0;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    content: '';
+    display: inline-block;
+    height: 0;
+    margin-left: 4px;
+    vertical-align: middle;
+    width: 0;
+  }
+}
+
+// Overlays
+%overlay {
+  &:before {
+    background: transparentize($black, .9);
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    visibility: visible;
+    width: 100%;
+    z-index: $middle;
+  }
+}
+
+%overlay-container {
+  bottom: 0;
+  left: 0;
+  padding: $page-padding;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  @extend %transition;
+  z-index: $top;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    margin-right: -10px;
+    vertical-align: middle;
+    width: 10px;
+  }
+}
+
+%overlay-msg {
+  background: $white;
+  border-radius: $border-radius-all;
+  box-shadow: $box-shadow-large;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+%overlay-banner {
+  &:before {
+    background: linear-gradient(to bottom, transparentize($black, .75), transparentize(black, .25) 75%);
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+// Checkboxes/radios
+%checker {
+  display: inline-block;
+  line-height: 1.6875;
+}
+
+%checker__input {
+  opacity: 0;
+  height: 0;
+  position: absolute;
+  width: 0;
+}
+
+%checker__lbl {
+  @extend %sm;
+  display: inline-block;
+  padding-left: rem(30);
+  position: relative;
+  user-select: none;
+
+  &:before,
+  &:after {
+    content: '';
+    height: rem(20);
+    left: 0;
+    margin-top: rem(-1);
+    position: absolute;
+    top: rem(2);
+    width: rem(20);
+  }
+
+  &:before {
+    background: $white;
+    border: 1px solid darken($border-color, 10);
+  }
+
+  &:after {
+    @extend %transition;
+  }
+
+  input[disabled] + & {
+    color: $text-light;
+
+    &:before {
+      background: $gray-extra-light;
+      border-color: $border-color;
+      cursor: not-allowed;
+    }
+  }
+}

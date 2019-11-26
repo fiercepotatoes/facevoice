@@ -1,0 +1,57 @@
+/*-------------------------------------------
+  Global styles
+-------------------------------------------*/
+html {
+  font-size: 16px;
+}
+
+body {
+  @extend %antialias;
+  background: $white;
+  color: $text;
+  cursor: none;
+  font-family: $sans-serif;
+  @extend %sm;
+}
+
+// Container elements
+.content {
+  position: relative;
+}
+
+.wrap, {
+  margin: 0 auto;
+  max-width: $page-width;
+  padding: 0 $page-padding;
+
+  @include min-up($tablet) {
+    padding: 0 $page-padding-lg;
+  }
+}
+
+// Links
+a, %link {
+  @extend %transition;
+  color: $accent-1;
+  text-decoration: underline;
+
+  .icon {
+    @extend %transition;
+  }
+
+  &:hover {
+    color: darken($accent-1, 20);
+    text-decoration: underline;
+
+    .icon {
+      fill: darken($accent-1, 20);
+    }
+  }
+
+  &:focus {
+    &:not([class*='btn']):not(.nav__item):not(.tab) {
+      color: darken($accent-1, 20);
+      text-decoration: underline;
+    }
+  }
+}

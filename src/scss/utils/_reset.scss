@@ -1,0 +1,151 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	border: 0;
+	font-family: inherit;
+	font-size: 100%;
+	font-style: inherit;
+	font-weight: inherit;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+// default background, color, and line height
+body {
+	background: #fff;
+	color: #333;
+	line-height: 1;
+}
+
+// set html5 elements to block for older browsers
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+// set all box sizing to border
+*,
+*:before,
+*:after {
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+// reset heading weight
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+
+// default link styles
+// :focus adds outline for keyboard users
+// :active removes outline for users who click and then don't follow the link
+a, a:hover {
+	color: inherit;
+	text-decoration: none;
+}
+a:focus, :focus {
+	outline: none;
+}
+
+// list styles (five deep for ol three for ul)
+ol {
+	list-style: decimal; margin: 0 0 0 2em;
+}
+ol ol {
+	list-style: upper-alpha;
+}
+ol ol ol {
+	list-style: upper-roman;
+}
+ol ol ol ol {
+	list-style: lower-alpha;
+}
+ol ol ol ol ol {
+	list-style: lower-roman;
+}
+
+ul {
+	list-style: disc; margin: 0 0 0 2em;
+}
+ul ul {
+	list-style: circle;
+}
+ul ul ul {
+	list-style: square;
+}
+
+// set input textarea and button font-family to match that of the body
+input, textarea, button {
+	font-family: inherit;
+	font-size: inherit;
+}
+textarea {
+	resize: none;
+}
+
+// vertical alignment of checkboxes (a different value is served to IE 7)
+input[type="checkbox"] {
+  vertical-align: bottom;
+  *vertical-align: baseline;
+}
+
+// cursors
+button {
+	cursor: pointer;
+}
+
+*[disabled] {
+	cursor: not-allowed;
+}
+
+// vertical alignment of radio buttons
+input[type="radio"] {
+	vertical-align: text-bottom;
+}
+
+
+// vertical alignment of input fields for IE 6
+input {
+	_vertical-align: text-bottom;
+}
+
+
+// set textarea to block */
+textarea {
+	display: block;
+}
+
+// tables still need 'cellspacing="0"' in the markup
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	font-weight: normal;
+	text-align: left;
+}
+
+// Remove quote marks
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+}
+
+blockquote, q {
+	quotes: "" "";
+}

@@ -1,0 +1,106 @@
+/*-------------------------------------------
+  Font sizes, line-heights, and margins
+-------------------------------------------*/
+%xl {font-size: rem(32)}
+%h1 {font-size: rem(24)}
+%h2 {font-size: rem(20)}
+%h3 {font-size: rem(19)}
+%h4 {font-size: rem(18)}
+%h5 {font-size: rem(16)}
+%h6 {font-size: rem(16)}
+%sm {font-size: rem(14)}
+%xs {font-size: rem(12)}
+
+@include min-up($tablet) {
+  %xl {font-size: rem(48)}
+  %h1 {font-size: rem(32)}
+  %h2 {font-size: rem(28)}
+  %h3 {font-size: rem(24)}
+  %h4 {font-size: rem(20)}
+  %h5 {font-size: rem(18)}
+  %h6 {font-size: rem(16)}
+  %sm {font-size: rem(14)}
+  %xs {font-size: rem(12)}
+}
+
+h1 {
+  @extend %h1;
+  line-height: 1.4;
+}
+
+h2 {
+  @extend %h2;
+  line-height: 1.6785;
+}
+
+h3 {
+  @extend %h3;
+  line-height: 1.666666667;
+}
+
+h4 {
+  @extend %h4;
+  line-height: 1.7;
+}
+
+h5 {
+  @extend %h5;
+  line-height: 1.666666667;
+}
+
+h6 {
+  @extend %h6;
+  line-height: 1.6875;
+}
+
+p, ol, ul, dl {
+  @extend %sm;
+  line-height: 1.6875;
+  margin-bottom: 1.6875em;
+}
+
+// Font styles/weights
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: 700;
+}
+
+abbr {
+  text-decoration: none;
+}
+
+code {
+  background: $gray-light;
+  font-family: monospace;
+}
+
+.preposition {
+  @extend %sm;
+  display: inline-block;
+  margin: 0 rem(10);
+}
+
+.preposition--vertical {
+  margin: rem(12) 0 rem(10);
+}
+
+.no-results {
+  display: block;
+  line-height: 1.2;
+  margin: 1em 0;
+  text-align: center;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.required {
+  &:after {
+    content: ' *';
+    color: $accent-1;
+  }
+}

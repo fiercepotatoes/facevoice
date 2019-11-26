@@ -1,0 +1,204 @@
+/*-------------------------------------------
+  Global mixins
+-------------------------------------------*/
+// The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix() {
+	*zoom:1;
+	&:before,
+	&:after {
+		content:"";
+		display:table;
+	}
+	&:after {
+		clear:both;
+	}
+}
+
+// Media queries
+@mixin max-down($max) {
+    @media only screen and (max-width: $max) { @content; }
+}
+
+@mixin min-up($min) {
+    @media only screen and (min-width: $min) { @content; }
+}
+
+@mixin min-max($min, $max) {
+    @media only screen and (min-width: $min) and (max-width: $max) { @content; }
+}
+
+@mixin height-up($min) {
+    @media only screen and (min-height: $min) { @content; }
+}
+
+// px to em
+$em-base: 16;
+
+@function em($pxval, $base: $em-base) {
+	@if not unitless($pxval) {
+		$pxval: strip-units($pxval);
+	}
+	@if not unitless($base) {
+		$base: strip-units($base);
+	}
+	@return ($pxval / $base) * 1em;
+}
+
+// px to rem
+@function rem($pxval) {
+	@if not unitless($pxval) {
+		$pxval: strip-units($pxval);
+	}
+
+	$base: $em-base;
+	@if not unitless($base) {
+		$base: strip-units($base);
+	}
+	@return ($pxval / $base) * 1rem;
+}
+
+// Table to list
+@mixin table-to-list {
+  width: 100%;
+
+  thead {
+    display: none;
+  }
+  tr, td, th {
+    display: block;
+  }
+  td, th {
+		&[data-col] {
+			&:before {
+	      content: attr(data-col) ': ';
+	    }
+		}
+  }
+}
+
+// Grid
+@mixin grid($total-width, $gutter-width, $row-count, $element) {
+	#{$element} {
+		$g: $gutter-width/$total-width;
+		float: left;
+		margin-bottom: $g * 100%;
+		width: ((1 - ($g * ($row-count - 1))) / $row-count) * 100%;
+
+		&:nth-child(#{$row-count}n) {
+			margin-right: 0;
+		}
+	}
+	#{$element}:not(:nth-child(#{$row-count}n)) {
+		$g: $gutter-width/$total-width;
+		margin-right: $g * 100%;
+	}
+}
+
+/* USAGE:
+
+ul {
+	background: darkblue;
+	list-style: none;
+	margin: 0 auto;
+	max-width: 960px;
+	overflow: hidden;
+
+	@include grid(960, 20, 3, li);
+
+	li {
+		background: darkred;
+		height: 100px;
+		text-indent: -999em;
+
+		&:nth-child(2n+2) {
+			-webkit-animation: silly2 5s ease-in-out 0s infinite alternate;
+		}
+		&:nth-child(3n) {
+			-webkit-animation: silly 5s ease-in-out 0s infinite alternate;
+		}
+	}
+
+	@media screen and (min-width: 30em) {
+		@include grid(960, 20, 4, li);
+	}
+	@media screen and (min-width: 40em) {
+		@include grid(960, 20, 6, li);
+	}
+
+}
+
+*/
+
+// Loading graphic
+@mixin loader($color) {
+  animation: loader-spin 1s infinite linear;
+	display: block;
+  height: 30px;
+  width: 30px;
+
+  &:before {
+    background: $color;
+    border-radius: 50%;
+    box-shadow: 7px 3px 0 0 transparentize($color, .12),
+                10px 10px 0 0 transparentize($color, .24),
+                7px 17px 0 0 transparentize($color, .36),
+                0px 20px 0 0 transparentize($color, .48),
+                -7px 17px 0 0 transparentize($color, .60),
+                -10px 10px 0 0 transparentize($color, .72),
+                -7px 3px 0 0 transparentize($color, .84);
+    content: '';
+    height: 5px;
+    left: 50%;
+    position: absolute;
+    top: 2px;
+    transform: translateX(-50%);
+    width: 5px;
+  }
+}
+
+@keyframes 'loader-spin' {
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(360deg);
+  }
+}
+
+/// Mixin to place items on a circle
+/// @author Hugo Giraudel
+/// @author Ana Tudor
+/// @param {Integer} $item-count - Number of items on the circle
+/// @param {Length} $circle-size - Large circle size
+/// @param {Length} $item-size - Single item size
+@mixin on-circle($item-count, $circle-size, $item-size) {
+  position: relative;
+  width:  $circle-size;
+  height: $circle-size;
+  padding: 0;
+  border-radius: 50%;
+  list-style: none;
+
+  > * {
+    display: block;
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    width:  $item-size;
+    height: $item-size;
+    margin: -($item-size / 2);
+
+    $angle: (360 / $item-count);
+    $rot: 0;
+
+    @for $i from 1 through $item-count {
+      &:nth-of-type(#{$i}) {
+        transform:
+          rotate($rot * 1deg)
+          translate($circle-size / 2)
+          rotate($rot * -1deg);
+      }
+
+      $rot: $rot + $angle;
+    }
+  }
+}

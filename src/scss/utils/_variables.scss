@@ -1,0 +1,155 @@
+/*-------------------------------------------
+  Colors
+-------------------------------------------*/
+// Brand colors
+$blue: #0074cc;
+$blue-alt: #3a91e4;
+$blue-dark: #5166d6;
+$green: #46be8a;
+$green-alt: #5cd29d;
+$orange: #f2a652;
+$pink: #f44c87;
+$purple: #bba7e4;
+$purple-alt: darken($purple, 10);
+$red: #e9595b;
+$red-alt: lighten($red, 5);
+$teal: #47b8c6;
+$yellow: #f9cd48;
+$lime: $green;
+
+// Grays
+$black: #000;
+$gray: #76838f;
+$gray-dark: #526069;
+$gray-extra-dark: #37474f;
+$gray-light: #e4eaec;
+$gray-extra-light: #f3f7f9;
+$white: #fff;
+
+// Accents
+$accent-1: $blue;
+$accent-1-alt: $blue-alt;
+$accent-2: $purple;
+$accent-2-alt: $purple-alt;
+$accent-3: $green;
+$accent-3-alt: $green-alt;
+$accent-4: $red;
+$accent-4-alt: lighten($red, 20);
+$accent-5: $orange;
+$accent-5-alt: lighten($orange, 20);
+$accent-6: $pink;
+$accent-6-alt: lighten($pink, 20);
+$accent-7: $yellow;
+$accent-7-alt: lighten($yellow, 20);
+
+// UI colors
+$text: $gray;
+$text-dark: $gray-dark;
+$text-extra-dark: $gray-extra-dark;
+$text-light: lighten($text, 20);
+$border-color: $gray-light;
+$toggle-color: $purple;
+
+// Loader colors
+$loader-1: #3a91e4;
+$loader-2: #f9cd48;
+$loader-3: #46be8a;
+$loader-4: #f44c87;
+
+// Dialog colors
+$dialog-accent: #0074cc;
+
+// State colors
+$success: $green;
+$plus-color: $green;
+$plus-color-alt: $green-alt;
+$warn-color: $yellow;
+$error: $red;
+$minus-color: $red;
+$minus-color-alt: $red-alt;
+
+/*-------------------------------------------
+  Fonts
+-------------------------------------------*/
+$sans-serif: 'Roboto', sans-serif;
+
+/*-------------------------------------------
+  Stacking
+-------------------------------------------*/
+$bottom: 1000;
+$middle: 2000;
+$top: 3000;
+
+/*-------------------------------------------
+  Breakpoints
+-------------------------------------------*/
+// Min-up
+$mobile: em(320);
+$mobile-lg: em(460);
+$tablet: em(768);
+$desktop-sm: em(820);
+$desktop: em(1024);
+
+// Max-down
+$mobile-down: em(319);
+$mobile-lg-down: em(459);
+$tablet-down: em(767);
+$desktop-down: em(1023);
+
+/*-------------------------------------------
+  Grid settings
+-------------------------------------------*/
+$page-width: rem(1260);
+$page-padding: 15px;
+$page-padding-lg: 30px;
+
+@include min-up($tablet) {
+  $padding-size: 30px;
+}
+
+/*-------------------------------------------
+  Misc
+-------------------------------------------*/
+$nav-width: rem(220);
+$mobile-header-height: rem(58);
+
+// Border radius
+$border-radius-amount: 3px;
+$border-radius-all: $border-radius-amount;
+$border-radius-top: $border-radius-amount $border-radius-amount 0 0;
+$border-radius-bottom: 0 0 $border-radius-amount $border-radius-amount;
+$border-radius-left: $border-radius-amount 0 0 $border-radius-amount;
+$border-radius-right: 0 $border-radius-amount $border-radius-amount 0;
+
+// Box shadows
+$box-shadow-small: 0 1px 1px 0 transparentize($black, .95);
+$box-shadow-normal: 0 3px 12px 0 transparentize($black, .95);
+$box-shadow-large: 0 4px 15px 0 transparentize($black, .9);
+$box-shadow-drawer: 0 0 20px 0 transparentize($black, .75);
+$box-shadow-inset-normal: inset 0 2px 3px 0 transparentize($black, .95);
+
+/*-------------------------------------------
+  Text inputs
+-------------------------------------------*/
+$text-input-list: (
+  'input[type="color"]',
+  'input[type="date"]',
+  'input[type="datetime-local"]',
+  'input[type="datetime"]',
+  'input[type="email"]',
+  'input[type="month"]',
+  'input[type="number"]',
+  'input[type="password"]',
+  'input[type="search"]',
+  'input[type="tel"]',
+  'input[type="text"]',
+  'input[type="time"]',
+  'input[type="url"]',
+  'input[type="week"]',
+);
+
+$all-text-inputs: ();
+
+@each $input in $text-input-list {
+  $all-text-inputs: append($all-text-inputs, $input, comma);
+}

@@ -1,0 +1,52 @@
+{
+  "name": "facevoice",
+  "description": "Hopefully the most annoying UI ever built",
+  "homepage": ".",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "babel-eslint": "9.0.0",
+    "concurrently": "3.0.0",
+    "eslint": "5.12.0",
+    "git-revision": "^0.0.2",
+    "node-sass": "^4.5.0",
+    "node-sass-glob-importer": "^5.3.2",
+    "autoprefixer": "^6.7.2",
+    "postcss": "^5.2.12",
+    "postcss-cli": "^2.6.0",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "date-fns": "^2.0.1",
+    "date-fns-tz": "^1.0.7",
+    "history": "^4.9.0",
+    "mobx": "^5.13.0",
+    "mobx-react": "~5.4.4",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "2.1.5"
+  },
+  "scripts": {
+    "start": "concurrently --names \"webpack, node-sass\" --prefix name \"npm run scripts\" \"npm run watch-styles\" || true",
+    "build": "node bin/build.js",
+    "eject": "react-scripts eject",
+    "scripts": "react-scripts start",
+    "styles": "node-sass --importer node_modules/node-sass-glob-importer/dist/cli.js --output-style 'compressed' ./src/scss/ -o ./src/css/ && ./node_modules/postcss-cli/bin/postcss -u autoprefixer ./src/css/*.css -d ./src/css/",
+    "watch-styles": "nodemon -e scss -x 'npm run styles' || true",
+    "deploy": "ns ./build --cmd 'list ./content -s'"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/react-scripts/.eslintrc"
+  },
+  "browserslist": [
+    ">0.2%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not ie <= 11",
+    "not ie_mob <= 10",
+    "not op_mini all"
+  ]
+}

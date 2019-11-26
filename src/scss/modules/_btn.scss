@@ -1,0 +1,213 @@
+/*-------------------------------------------
+  Button styles
+-------------------------------------------*/
+// Default button
+.btn, %btn {
+  @extend %btn-reset;
+  @extend %transition;
+  background: $accent-1;
+  border: none;
+  border-radius: $border-radius-all;
+  color: $white;
+  cursor: pointer;
+  display: inline-block;
+  flex-shrink: 0;
+	@extend %sm;
+  line-height: 1.5;
+  margin: 0;
+  overflow: hidden;
+  padding: 8px 15px 6px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  z-index: 1;
+
+  &:before {
+    @extend %transition;
+    background: lighten($accent-1, 10);
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transform: scaleX(0);
+    width: 100%;
+    z-index: -1;
+  }
+
+  .icon {
+    height: 14px;
+    margin-right: 6px;
+    top: 1px;
+    width: 14px;
+  }
+
+  &:hover {
+    color: $white;
+    text-decoration: none;
+
+    &:before {
+      opacity: 1;
+      transform: none;
+    }
+
+    &[type="button"][value] {
+      background: lighten($accent-1, 10);
+    }
+  }
+
+  &:focus:not(:active) {
+    &:not(.btn--clicked) {
+      outline: 2px dotted $black;
+    }
+  }
+
+  &:disabled {
+    background: $gray-light;
+    color: $text-dark;
+
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+}
+
+// Outline buttons
+%btn--outline,
+.btn--outline {
+  @extend %btn;
+  background: $white;
+  border: 1px solid $accent-1;
+  color: $accent-1;
+  padding: 7px 14px 5px;
+
+  &:hover {
+    border-color: lighten($accent-1, 20);
+    color: $white;
+  }
+
+  &:disabled {
+    background: $white;
+    border-color: darken($border-color, 10);
+    color: $text;
+
+    &:hover {
+      color: $text;
+    }
+  }
+}
+
+// Color variations
+.btn--negative,
+%btn--negative {
+  background: $minus-color;
+  color: $white;
+
+  &:before {
+    background: lighten($minus-color, 10);
+  }
+
+  &:hover {
+    &[type="button"][value] {
+      background: lighten($minus-color, 10);
+    }
+  }
+
+  &.btn--outline {
+    background: $white;
+    border-color: $minus-color;
+    color: $minus-color;
+
+    &:before {
+      background: $minus-color;
+    }
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+.btn--positive,
+%btn--positive {
+  background: $plus-color;
+  color: $white;
+
+  &:before {
+    background: lighten($plus-color, 10);
+  }
+
+  &:hover {
+    &[type="button"][value] {
+      background: lighten($plus-color, 10);
+    }
+  }
+
+  &.btn--outline {
+    background: $white;
+    border-color: $plus-color;
+    color: $plus-color;
+
+    &:before {
+      background: $plus-color;
+    }
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+// Full-width buttons
+.btn--full {
+  width: 100%;
+}
+
+// Link style buttons
+.btn--link, %btn--link {
+  @extend %btn-reset;
+  @extend %link;
+}
+
+// Ghost button
+.btn--ghost {
+  @extend %transition;
+  background: none;
+  color: $text;
+  height: rem(30);
+  padding: 0 10px;
+  min-width: rem(30);
+
+  &:before {
+    display: none;
+  }
+
+  .icon {
+    height: rem(12);
+    margin-right: 0;
+    top: 1px;
+    width: rem(12);
+
+    &:only-child {
+      margin-right: 6px;
+    }
+  }
+
+  &:hover {
+    background: transparentize($black, .96);
+    color: $accent-1;
+
+    &.btn--negative {
+      color: $minus-color;
+    }
+  }
+}
+
+// Button reset
+.btn--reset {
+  @extend %btn-reset;
+}

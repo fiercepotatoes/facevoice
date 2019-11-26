@@ -1,0 +1,14 @@
+{
+  "content": {
+    "Home": {
+      "heading": "Hello!!!",
+      "body": "Welcome to this amazing app. Please click the button.",
+      "button": "Click me!!!",
+      "clicked": {
+        "heading": "You did it!",
+        "body": "Great work! You did a really good job clicking that button. Please click the dismiss button to close this dialog.",
+        "button": "Dismiss"
+      }
+    }
+  }
+}

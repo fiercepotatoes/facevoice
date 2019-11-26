@@ -1,0 +1,13 @@
+/*-------------------------------------------
+  Webcam styles
+-------------------------------------------*/
+.webcam {
+  background: $black;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transform: scaleX(-1);
+  width: 100vw;
+  z-index: -1;
+}

@@ -1,0 +1,14 @@
+/*-------------------------------------------
+  Page styles
+-------------------------------------------*/
+.page {
+  backdrop-filter: blur(10px);
+  background: transparentize($white, .125);
+  min-height: 100vh;
+  padding: $page-padding;
+  width: 100vw;
+
+  @include min-up($tablet) {
+    padding: $page-padding-lg;
+  }
+}

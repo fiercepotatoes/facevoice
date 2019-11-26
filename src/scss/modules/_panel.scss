@@ -1,0 +1,75 @@
+/*-------------------------------------------
+  Panel styles
+-------------------------------------------*/
+.panel, %panel {
+  background: $white;
+	border: 1px solid $border-color;
+	border-radius: $border-radius-all;
+	box-shadow: $box-shadow-small;
+	padding: $page-padding;
+	position: relative;
+
+	@include min-up($tablet) {
+		padding: $page-padding-lg;
+	}
+
+	p, ol, ul {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.panel--md {
+	max-width: rem(662);
+	width: 100%;
+}
+
+.panel--sm {
+	max-width: rem(482);
+	width: 100%;
+}
+
+.panel--solo {
+	margin: $page-padding auto;
+	text-align: center;
+
+	@include min-up($tablet) {
+		margin: $page-padding-lg auto;	
+	}
+}
+
+.panel--form {
+	text-align: left;
+}
+
+.panel__title {
+	@extend %h2;
+	margin-bottom: rem(12);
+	text-align: center;
+}
+
+.panel__title--alt {
+	text-align: left;
+}
+
+.panel__action {
+	background: $gray-extra-light;
+	border-top: 1px solid $border-color;
+	border-radius: $border-radius-bottom;
+	display: flex;
+	margin: $page-padding (-$page-padding) (-$page-padding);
+	padding: $page-padding;
+
+	> .btn {
+		margin-left: rem(10);
+
+		&:first-child {
+			margin-left: auto;
+		}
+	}
+
+	@include min-up($tablet) {
+		margin: $page-padding-lg (-$page-padding-lg) (-$page-padding-lg);
+	}
+}

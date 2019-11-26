@@ -1,0 +1,53 @@
+/*-------------------------------------------
+  Dialog styles
+-------------------------------------------*/
+.dialog {
+  @extend %overlay-container;
+}
+
+.dialog__content {
+  @extend %overlay-msg;
+  max-height: 100%;
+  max-width: 100%;
+  overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+  padding: 20px;
+  text-align: left;
+  width: rem(360);
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+	}
+	
+	p {
+		@extend %sm;
+		line-height: 1.5;
+		margin-bottom: 1em;
+	}
+}
+
+.dialog__title {
+  background: $blue;
+  // border-radius: $border-radius-top;
+  color: $white;
+  display: block;
+  @extend %h5;
+  font-weight: 400;
+  margin: -20px -20px rem(20);
+  padding: 19px 21px 17px;
+}
+
+.dialog__action {
+  margin-top: rem(25);
+  text-align: right;
+
+  * + * {
+    margin-left: rem(10);
+  }
+}
