@@ -6,6 +6,6 @@ This was originally intended to be a bad UI that was [posted to /r/badUIbattles]
 
 Just as a note, I wrote this very quickly using a starter kit that I already had. The code isn’t great and there are definitely areas where improvements could be made, but my goal was just to get a working prototype together so I could post it and get some sweet, sweet karma.
 
-The technologies used are [Jeeliz Face Filter](https://github.com/jeeliz/jeelizFaceFilter) for tracking the user’s face and the [Speech Recognition API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API) for listening for the user to say the word “click”.
+The technologies used are Create React App, [Jeeliz Face Filter](https://github.com/jeeliz/jeelizFaceFilter) for tracking the user’s face, and the [Speech Recognition API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API) for listening for the user to say the word “click”.
 
 This has only been tested in Chrome and Chrome may actually be the only browser that supports Speech Recognition right now.
