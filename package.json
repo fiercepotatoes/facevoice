@@ -9,7 +9,7 @@
     "concurrently": "3.0.0",
     "eslint": "5.12.0",
     "git-revision": "^0.0.2",
-    "node-sass": "^4.5.0",
+    "node-sass": "^7.0.0",
     "node-sass-glob-importer": "^5.3.2",
     "autoprefixer": "^6.7.2",
     "postcss": "^5.2.12",
